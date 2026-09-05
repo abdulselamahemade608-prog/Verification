@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Account Verification</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f2f7ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    width:90%;
+    max-width:380px;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 30px #ccc;
+}
+
+.logo{
+    font-size:60px;
+}
+
+h2{
+    color:#0088cc;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:#0088cc;
+    color:white;
+    font-size:18px;
+    margin-top:20px;
+}
+
+.status{
+    margin-top:20px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+<div class="logo">
+🔐
+</div>
+
+<h2>
+Account Verification
+</h2>
+
+<p>
+Securely verify your Telegram account
+</p>
+
+
+<button onclick="verify()">
+Start Verification
+</button>
+
+
+<div class="status" id="status">
+Waiting...
+</div>
+
+
+</div>
+
+
+
+<script>
+
+let tg = window.Telegram.WebApp;
+
+tg.expand();
+
+
+let user = tg.initDataUnsafe.user;
+
+
+function verify(){
+
+if(!user){
+
+document.getElementById("status").innerHTML =
+"❌ Open this page from Telegram";
+
+return;
+
+}
+
+
+let user_id = user.id;
+
+
+document.getElementById("status").innerHTML =
+"⏳ Checking account...";
+
+
+// Send to your API later
+
+setTimeout(()=>{
+
+document.getElementById("status").innerHTML =
+"✅ Successfully Verified";
+
+
+},2000);
+
+
+}
+
+</script>
+
+
+</body>
+</html>
