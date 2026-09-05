@@ -16,7 +16,7 @@ def check():
     if not user_id:
         return jsonify({
             "success": False,
-            "message": "No user id"
+            "message": "user_id is required"
         }), 400
 
     return jsonify({
