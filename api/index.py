@@ -15,22 +15,13 @@ def check():
 
     if not user_id:
         return jsonify({
-            "success":False,
-            "message":"No user id"
-        })
-
-
-    # Here you add your database checking later
+            "success": False,
+            "message": "No user id"
+        }), 400
 
     return jsonify({
-
-        "success":True,
-        "verified":True,
-        "user_id":user_id,
-        "message":"Successfully Verified"
-
+        "success": True,
+        "verified": True,
+        "user_id": user_id,
+        "message": "Successfully Verified"
     })
-
-
-if __name__ == "__main__":
-    app.run()
